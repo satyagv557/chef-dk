@@ -54,6 +54,10 @@ module ChefDK
       def fingerprint_text
         files_with_checksums.sort {|a,b| a[0] <=> b[0]}.inject("") do |fingerprint, file_spec|
           fingerprint << "#{file_spec[0]}:#{file_spec[1]}\n"
+        end.tap do |text|
+          $stderr.print("=checksums(#{cookbook_version.name})====\n")
+          $stderr.print(text)
+          $stderr.print("=end(#{cookbook_version.name}===\n")
         end
       end
 
