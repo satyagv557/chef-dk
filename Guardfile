@@ -7,3 +7,4 @@ guard :rspec, :cmd => "bundle exec rspec" do
   watch('spec/spec_helper.rb')  { "spec" }
   watch('spec/test_helpers.rb')  { "spec" }
 end
+hello
